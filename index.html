@@ -1,7 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>portfolio</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <header>
+        <div data-bss-parallax-bg="true" style="height: 600px;background-image: url(assets/img/header.jpeg);background-position: center;background-size: cover;">
+            <div class="container d-flex flex-column justify-content-end align-items-start">
+                <picture class="text-center"><img src="assets/img/WhatsApp%20Image%202024-06-19%20at%2020.00.45_3fba849e.jpg" width="335" height="222"></picture>
+                <h1 class="display-3 fw-bold">Kyle Ogle</h1>
+                <p class="fs-2 text-info text-badge mb-5">Aspiring Data Analyst</p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="py-4 py-xl-5">
+            <div class="container">
+                <p class="fs-3">I am Kyle Ogle. I am currently pursuing my BSc Information Technology degree, I am striving to one day become a data analyst. The world is my oyster and I'll use the power of statistics to conquer it!</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="https://x.com/kylekudasai"><i class="fab fa-twitter fs-1 me-2"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/kyle-ogle-a13994230"><i class="fab fa-linkedin-in fs-1 me-2"></i></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/UnknownAkatsukiAffiliate"><i class="fab fa-github fs-1 me-2"></i></a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="py-4 py-xl-5">
+            <div class="container">
+                <div class="banner">
+                    <p class="fs-1">Here is my CV</p>
+                    <a class="btn btn-dark btn-lg text-uppercase fw-bold" role="button" onclick="downloadFile1()">Proper CV<i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a class="btn btn-dark btn-lg text-uppercase fw-bold" role="button" onclick="downloadFile2()">FUN CV<i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="py-4 py-xl-5">
+            <div class="container">
+                <h2>All my projects are on GitHub</h2>
+            </div>
+        </section>
+    </main>
+    <footer class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start d-md-flex justify-content-md-start align-items-md-center py-2">
+                    <div>
+                        <p class="fs-5 fw-bold mb-0"></p>
+                        <p class="mb-0"></p>
+                    </div>
+                    <p>Contact info: 061 401 2481</p>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center justify-content-md-end py-2">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="https://x.com/kylekudasai"><i class="fab fa-twitter fs-1 me-2"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/kyle-ogle-a13994230"><i class="fab fa-linkedin-in fs-1 me-2"></i></a></li>
+                        <li class="list-inline-item"><a href="https://github.com/UnknownAkatsukiAffiliate"><i class="fab fa-github fs-1 me-2"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
 </body>
+<script>
+    function downloadFile1() {
+       window.open("CV.pdf")
+    }
+ </script>
+ <script>
+  function downloadFile2() {
+     window.open("Kyle Ogle.pdf")
+  }
+</script>
 </html>
