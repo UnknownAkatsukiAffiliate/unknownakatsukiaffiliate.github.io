@@ -16,30 +16,28 @@
         <a href="skills.html" class="nav-link">Skills</a>
         <a href="projects.html" class="nav-link">Projects</a>
         <a href="documents.html" class="nav-link">Documents</a>
-
       </nav>
     </div>
   </header>
 
   <main>
-    <main>
-      <section class="section about-text">
-        <div class="profile-pic-container">
-          <img src="profile image.jpg" alt="Kyle Ogle" />
-        </div>
-    
-        <h2>👋 About Me</h2>
-        <div class="modern-font">
-          <p>
-            I’m Kyle, a passionate BSc Information Technology student focused on software development, data science, embedded systems, and full-stack applications. I love tinkering with electronics and building cool tech projects with vaporwave vibes.
-          </p>
-        </div>
-      </section>
+    <section class="section about-text">
+      <div class="profile-pic-container">
+        <img src="profile image.jpg" alt="Kyle Ogle" />
+      </div>
 
-      
-      
-    </main>
-    
+      <div class="audio-section">
+        <button id="playButton">▶️ Play for best experience</button>
+        <audio id="vaporAudio" src="assets/vaporwave.mp3"></audio>
+      </div>
+
+      <h2>👋 About Me</h2>
+      <div class="modern-font rubik-font">
+        <p>
+          I’m Kyle, a passionate BSc Information Technology student focused on software development, data science, embedded systems, and full-stack applications. I love tinkering with electronics and building cool tech projects with vaporwave vibes.
+        </p>
+      </div>
+    </section>
   </main>
 
   <footer class="modern-footer">
@@ -51,5 +49,20 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    const audio = document.getElementById("vaporAudio");
+    const playButton = document.getElementById("playButton");
+
+    playButton.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        playButton.textContent = "⏸️ Pause Music";
+      } else {
+        audio.pause();
+        playButton.textContent = "▶️ Play for best experience";
+      }
+    });
+  </script>
 </body>
 </html>

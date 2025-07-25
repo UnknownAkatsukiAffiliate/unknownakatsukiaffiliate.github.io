@@ -232,3 +232,29 @@ main {
   color: #ff6fd8;
 }
 
+.audio-section {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+#playButton {
+  background-color: #ff6fd8;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 111, 216, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+#playButton:hover {
+  background-color: #8efcff;
+  color: #000;
+}
+
+.rubik-font {
+  font-family: 'Rubik', sans-serif;
+}
+
