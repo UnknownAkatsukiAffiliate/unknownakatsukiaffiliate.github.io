@@ -136,6 +136,13 @@ main {
   outline: none;
 }
 
+.header-container, .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 /* Responsive header */
 @media (max-width: 600px) {
   .header-container {
