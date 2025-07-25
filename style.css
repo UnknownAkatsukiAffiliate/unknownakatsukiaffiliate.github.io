@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
+  background: url('https://i.kym-cdn.com/entries/icons/original/000/018/629/6e0267150a74d7d9d28fac931b016b4c.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+  pointer-events: none;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 40px; /* space for sticky footer */
+}
+
+/* -------- Modern Header -------- */
+.modern-header {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: saturate(180%) blur(10px);
+  padding: 1rem 2rem;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 0 15px rgba(255, 111, 216, 0.4);
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+}
+
+.header-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-pic-container {
+  width: 180px;
+  height: 180px;
+  margin: 2rem auto 1.5rem auto; /* centered horizontally with vertical spacing */
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 20px #ff6fd8, 0 0 40px #8efcff;
+  border: 4px solid rgba(142, 252, 255, 0.6);
+  transition: transform 0.3s ease;
+  flex-shrink: 0; /* prevents shrinking inside flex container */
+}
+
+.profile-pic-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-pic-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #ff6fd8, 0 0 60px #8efcff;
+  border-color: rgba(255, 111, 216, 0.8);
+}
+
+/* Smaller profile pic in header on other pages */
+.modern-header .profile-pic-container {
+  width: 60px;
+  height: 60px;
+  margin: 0 1rem 0 0;
+  border: 2px solid rgba(142, 252, 255, 0.6);
+  box-shadow: 0 0 10px #ff6fd8, 0 0 20px #8efcff;
+  transition: transform 0.3s ease;
+}
+
+.modern-header .profile-pic-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff6fd8, 0 0 30px #8efcff;
+  border-color: rgba(255, 111, 216, 0.8);
+}
+
+/* Header title */
+.modern-header h1 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ff6fd8;
+  margin: 0;
+  text-shadow: 1px 1px 3px #000;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: #8efcff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 8px #8efcff;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: #ff6fd8;
+  color: #fff;
+  box-shadow: 0 0 12px #ff6fd8;
+  outline: none;
+}
+
+/* Responsive header */
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .modern-header .profile-pic-container {
+    margin: 0 0 1rem 0;
+  }
+
+  .modern-header h1 {
+    justify-content: center;
+  }
+}
+
+/* About Me text with modern font */
+.modern-font {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.2rem;
+  border-radius: 12px;
+  text-align: justify;
+  box-shadow: 0 0 10px #8efcff;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+.modern-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.2rem 1rem;
+  border-top: 1.5px solid #8efcff;
+  box-shadow: 0 -3px 10px rgba(255, 255, 255, 0.04);
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+  z-index: 1000;
+  backdrop-filter: saturate(180%) blur(10px);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.footer-content {
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.footer-content p {
+  margin: 0 0.3rem;
+  display: inline;
+}
+
+/* Updated footer link colors */
+.footer-content a {
+  color: #ff6fd8; /* vaporwave pink */
+  text-decoration: none;
+  margin: 0 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: #8efcff; /* cyan on hover */
+}
+
+.footer-note {
+  display: none; /* Hide extra footer text to keep footer slim */
+}
+
+.rubik-font {
+  font-family: 'Rubik', sans-serif;
+}
+
+.skills-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.skills-list li::before {
+  content: "✨ ";
+  color: #ff6fd8;
+}
+
