@@ -1,0 +1,255 @@
+.membership-page {
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.membership-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.page-header {
+    background: #f8f9fa;
+    padding: 30px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.breadcrumb {
+    text-align: left;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.content-section {
+    padding: 40px 0;
+    background: #fff;
+}
+
+.login-section {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border: 1px solid #dee2e6;
+}
+
+.login-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Tablet and smaller */
+@media (max-width: 1024px) {
+    .login-form {
+        max-width: calc(100% - 30px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .login-form {
+        max-width: calc(100% - 30px);
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .login-form {
+        max-width: calc(100% - 24px);
+    }
+}
+
+.login-input {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.login-button {
+    padding: 10px 15px;
+    background: #2c5530;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background: #1e3a23;
+}
+
+.login-links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-link {
+    color: #2c5530;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #1e3a23;
+    text-decoration: underline;
+}
+
+.intro-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.membership-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2c5530;
+}
+
+.content-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.content-list {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.list-item {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+.contact-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Membership Fees Section */
+.fee-calculation-container {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px 0;
+    border-left: 4px solid #2c5530;
+}
+
+.fee-subsection-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.fee-calculation-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 25px 0;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fee-explanation {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.explanation-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.fee-details-container {
+    background: #f0f4f2;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+.important-notice {
+    background: #fff8f0;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 4px solid #d9534f;
+    margin-top: 25px;
+}
+
+.notice-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #d9534f;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.notice-text {
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
