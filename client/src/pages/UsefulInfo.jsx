@@ -6,20 +6,33 @@ import Footer from "../components/footer.jsx";
 
 export default function UsefulInfo() {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = React.useState(0);
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const testimonials = [
+    { text: "Since the project of CID started here on the Bult. The Bult has been a safer place for everyone, especially our students, as well as for us workers on the Bult.", author: "Rose" },
+    { text: "Ek is al 13 jaar in Potch en ek moet sê, ek kan sien wat 'n ongelooflike verskil die CID gemaak het op die bult en Potchefstroom as geheel.", author: "Charonike Nel" },
+    { text: "The Bult is a place of relaxation for university students. So, it is very important that this area is clean, safe, and secured, thanks to the CID this has become a reality.", author: "Jonathan Knell" },
+    { text: "I'm a student here in Potchefstroom and since the CID project started, I feel much safer on the Bult, I can also say, that the environment is much cleaner, and it makes me proud to study here.", author: "Zanté Bencsh" },
+    { text: "The CID project is more than just a community project, as a student, I can personally say that what they are doing is more than just preventing littering and loitering on the Bult. It is a project that also prevents the dangers of everyday life.", author: "Righardt Hug" }
+  ];
+
+  const testimonialsPerPage = isMobile ? 2 : 3;
 
   const goToPreviousTestimonials = () => {
-    setCurrentTestimonialIndex((prev) => Math.max(0, prev - 1));
+    setCurrentTestimonialIndex((prev) => Math.max(0, prev - testimonialsPerPage));
   };
 
   const goToNextTestimonials = () => {
-    const testimonials = [
-      { text: "Since the project of CID started here on the Bult. The Bult has been a safer place for everyone, especially our students, as well as for us workers on the Bult.", author: "Rose" },
-      { text: "Ek is al 13 jaar in Potch en ek moet sê, ek kan sien wat 'n ongelooflike verskil die CID gemaak het op die bult en Potchefstroom as geheel.", author: "Charonike Nel" },
-      { text: "The Bult is a place of relaxation for university students. So, it is very important that this area is clean, safe, and secured, thanks to the CID this has become a reality.", author: "Jonathan Knell" },
-      { text: "I'm a student here in Potchefstroom and since the CID project started, I feel much safer on the Bult, I can also say, that the environment is much cleaner, and it makes me proud to study here.", author: "Zanté Bencsh" },
-      { text: "The CID project is more than just a community project, as a student, I can personally say that what they are doing is more than just preventing littering and loitering on the Bult. It is a project that also prevents the dangers of everyday life.", author: "Righardt Hug" }
-    ];
-    setCurrentTestimonialIndex((prev) => Math.min(testimonials.length - 3, prev + 1));
+    setCurrentTestimonialIndex((prev) => {
+      const maxIndex = testimonials.length - testimonialsPerPage;
+      return Math.min(maxIndex, prev + testimonialsPerPage);
+    });
   };
 
   return (
@@ -134,13 +147,7 @@ export default function UsefulInfo() {
               )}
               
               <div className="testimonials-container">
-                {[
-                  { text: "Since the project of CID started here on the Bult. The Bult has been a safer place for everyone, especially our students, as well as for us workers on the Bult.", author: "Rose" },
-                  { text: "Ek is al 13 jaar in Potch en ek moet sê, ek kan sien wat 'n ongelooflike verskil die CID gemaak het op die bult en Potchefstroom as geheel.", author: "Charonike Nel" },
-                  { text: "The Bult is a place of relaxation for university students. So, it is very important that this area is clean, safe, and secured, thanks to the CID this has become a reality.", author: "Jonathan Knell" },
-                  { text: "I'm a student here in Potchefstroom and since the CID project started, I feel much safer on the Bult, I can also say, that the environment is much cleaner, and it makes me proud to study here.", author: "Zanté Bencsh" },
-                  { text: "The CID project is more than just a community project, as a student, I can personally say that what they are doing is more than just preventing littering and loitering on the Bult. It is a project that also prevents the dangers of everyday life.", author: "Righardt Hug" }
-                ].slice(currentTestimonialIndex, currentTestimonialIndex + 3).map((testimonial, index) => (
+                {testimonials.slice(currentTestimonialIndex, currentTestimonialIndex + testimonialsPerPage).map((testimonial, index) => (
                   <div key={index} className="testimonial-item">
                     <p className="testimonial-text">
                       "{testimonial.text}"
@@ -150,7 +157,7 @@ export default function UsefulInfo() {
                 ))}
               </div>
 
-              {currentTestimonialIndex < 2 && (
+              {currentTestimonialIndex < testimonials.length - testimonialsPerPage && (
                 <button 
                   className="testimonial-nav-arrow testimonial-nav-next"
                   onClick={goToNextTestimonials}
