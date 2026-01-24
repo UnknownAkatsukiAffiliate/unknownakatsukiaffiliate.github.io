@@ -1,7 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap');
+/* Responsive scaling for Contact Us page */
+@media (max-width: 900px) {
+  .about-container,
+  .content-section {
+    padding: 0 6px !important;
+    max-width: 100vw !important;
+    width: 100vw !important;
+    box-sizing: border-box;
+  }
+  .contact-page {
+    width: 100vw !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .form-container {
+    max-width: 100vw !important;
+    padding: 0 !important;
+  }
+  .map-wrap {
+    height: 180px !important;
+    min-height: 120px !important;
+    margin-bottom: 8px !important;
+  }
+  .banking-box,
+  .site-credit {
+    margin-top: 6px !important;
+    position: relative !important;
+    top: auto !important;
+    z-index: 1 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-container,
+  .content-section {
+    padding: 0 2px !important;
+  }
+  .section-title {
+    font-size: 18px !important;
+  }
+  .page-title {
+    font-size: 18px !important;
+  }
+  .map-wrap {
+    height: 120px !important;
+  }
+}
 
 :root {
-  --site-font: 'Raleway', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   --accent: #2c5530;
   --muted: #666;
   --danger: #dc3545;
