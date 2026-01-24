@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap');
+
+:root {
+  --site-font: 'Raleway', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.about-page {
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--site-font);
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.content-section {
+  padding: 40px 0;
+  background: #fff;
+}
 /* ---------- Container & Header ---------- */
 .about-page {
   width: 100vw;
