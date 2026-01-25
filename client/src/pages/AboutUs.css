@@ -1,3 +1,72 @@
+/* Shared header image style for consistent scale across pages */
+.about-header-image {
+  display: block;
+  margin: 0 auto 32px auto;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+/* Responsive container and section spacing to match HomePage and Membership */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.content-section {
+  padding: 40px 0;
+  background: #fff;
+}
+
+@media (max-width: 1024px) {
+  .about-container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  .content-section {
+    padding: 32px 0;
+  }
+  .section {
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page, .about-container, .content-section {
+    max-width: 100vw;
+    width: 100vw;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 13px;
+  }
+  .about-container {
+    padding: 0 10px;
+  }
+  .content-section {
+    padding: 20px 0;
+  }
+  .section {
+    padding: 20px 10px;
+  }
+  .page-title, .section-title {
+    font-size: 16px;
+  }
+}
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap');
 
 :root {

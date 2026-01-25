@@ -6,17 +6,26 @@
 
 /* apply Raleway across the page/hero */
 body,
-.home-container,
-.hero-outer {
-  font-family: var(--site-font);
-  color: #000;
-}
+
+
 
 .home-page {
   width: 100vw;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.content-section {
+  padding: 40px 0;
+  background: #fff;
 }
 
 .hero-title {
@@ -458,20 +467,24 @@ body,
 }
 
 .carousel-nav-btn {
-  background: #f0f0f0;
-  color: #000;
-  border: 6px solid #000;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 24px;
+    min-width: unset;
+    min-height: unset;
+    box-sizing: content-box;
+    background: none !important;
+    color: #111 !important;
+    border: none !important;
+    width: 18px;
+    height: 18px;
+    border-radius: 0 !important;
+    cursor: pointer;
+    font-size: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   flex-shrink: 0;
   font-weight: bold;
+  padding: 0;
 }
 
 .carousel-nav-btn:last-child {

@@ -209,8 +209,7 @@ export default function Registration() {
       {/* Page Header (consistent with other pages) */}
       <section className="page-header">
         <div className="registration-container">
-          <h1 className="page-title">Registration</h1>
-          <div className="breadcrumb">Registration</div>
+        <h1 className="page-title">Registration</h1>
         </div>
       </section>
  

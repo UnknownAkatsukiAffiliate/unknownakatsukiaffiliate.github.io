@@ -110,6 +110,12 @@ const galleryImages = [
     alt: "Park Scene",
     title: "Park Scene",
     type: "image"
+  },
+  {
+    src: new URL("../images/download (5).png", import.meta.url).href,
+    alt: "Collage Image",
+    title: "Collage Image",
+    type: "image"
   }
 ];
 
@@ -197,12 +203,22 @@ export default function AboutUs() {
     <div className="about-page">
       <Navbar />
 
+
       {/* Page Header */}
       <section className="page-header">
         <div className="about-container">
           <h1 className="page-title">About Us</h1>
         </div>
       </section>
+
+      {/* Background image below About Us heading */}
+      <div className="about-container">
+        <img
+          src={new URL("../images/download.png", import.meta.url).href}
+          alt="Park at night background"
+          className="about-header-image"
+        />
+      </div>
 
       <main className="content-section">
         <div className="about-container">

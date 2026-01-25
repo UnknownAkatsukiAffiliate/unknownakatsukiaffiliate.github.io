@@ -37,14 +37,10 @@ export default function Navbar() {
       if (animationFrame.current) {
         cancelAnimationFrame(animationFrame.current);
       }
-
       animationFrame.current = requestAnimationFrame(() => {
         const scrollTop = window.scrollY;
         const shouldBeCompact = scrollTop > 100;
-        
-        if (shouldBeCompact !== isCompact) {
-          setIsCompact(shouldBeCompact);
-        }
+        setIsCompact(shouldBeCompact);
       });
     };
 
@@ -59,10 +55,10 @@ export default function Navbar() {
 
     // Initial check
     handleResize();
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize, { passive: true });
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
@@ -70,7 +66,7 @@ export default function Navbar() {
         cancelAnimationFrame(animationFrame.current);
       }
     };
-  }, [isCompact]);
+  }, []);
 
   const goToReportSection = (e) => {
     e?.preventDefault();
@@ -196,11 +192,19 @@ export default function Navbar() {
         <nav className={buildClassName("navbar-main navbar navbar-expand-lg navbar-light bg-white", isCompact, "navbar-main-compact")}>
           <div className="navbar-container">
             <div className="d-flex align-items-center justify-content-between w-100">
-              {/* Logo */}
-              <div className={buildClassName("logo-container", isCompact, "logo-container-compact")}>
-                <img 
-                  src={logoImg} 
-                  alt="Cachet Park CID Logo" 
+              {/* Logo - clickable, navigates to homepage */}
+              <div
+                className={buildClassName("logo-container", isCompact, "logo-container-compact")}
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate("/")}
+                tabIndex={0}
+                role="button"
+                aria-label="Go to homepage"
+                onKeyDown={e => { if (e.key === "Enter" || e.key === " ") navigate("/"); }}
+              >
+                <img
+                  src={logoImg}
+                  alt="Cachet Park CID Logo"
                   className={buildClassName("logo", isCompact, "logo-compact")}
                 />
               </div>
@@ -295,7 +299,13 @@ export default function Navbar() {
       </div>
       
       {/* SPACER - INCREASED HEIGHT FOR MORE SPACE BETWEEN NAVBAR AND CONTENT */}
-      <div className={buildClassName("navbar-spacer", isCompact, "navbar-spacer-compact")} />
+      <div
+        className={buildClassName("navbar-spacer", isCompact, "navbar-spacer-compact")}
+        style={{
+          height: isMobile ? (isCompact ? 80 : 120) : (isCompact ? 120 : 160),
+          transition: 'height 0.3s',
+        }}
+      />
     </>
   );
 }

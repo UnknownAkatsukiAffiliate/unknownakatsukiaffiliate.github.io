@@ -261,25 +261,38 @@
   background: transparent !important;
   border: none !important;
   cursor: pointer;
-  padding: 10px !important;
+  padding: 8px !important; /* reasonable tap target */
   order: 3;
   margin-left: auto !important;
   transition: all 0.3s ease;
-  width: 40px;
-  height: 40px;
+  width: fit-content !important;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 48px;
+  max-height: 48px;
+  box-sizing: content-box;
+  flex: 0 0 auto !important;
+  align-self: center;
   justify-content: center;
   align-items: center;
 }
 
 .navbar-toggler:hover {
-  background: rgba(44, 85, 48, 0.08) !important;
-  border-radius: 6px;
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .navbar-toggler:focus {
   outline: none !important;
   box-shadow: none !important;
-  background: rgba(44, 85, 48, 0.12) !important;
+  background: none !important;
+  border-radius: 0 !important;
+}
+.navbar-toggler:active {
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .navbar-toggler-icon {

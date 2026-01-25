@@ -22,7 +22,7 @@ export default function UsefulInfo() {
     { text: "The CID project is more than just a community project, as a student, I can personally say that what they are doing is more than just preventing littering and loitering on the Bult. It is a project that also prevents the dangers of everyday life.", author: "Righardt Hug" }
   ];
 
-  const testimonialsPerPage = isMobile ? 2 : 3;
+  const testimonialsPerPage = isMobile ? 1 : 3;
 
   const goToPreviousTestimonials = () => {
     setCurrentTestimonialIndex((prev) => Math.max(0, prev - testimonialsPerPage));

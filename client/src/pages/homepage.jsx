@@ -47,7 +47,7 @@ export default function HomePage() {
     { name: "Sponsor", url: "#", img: sponsorImg1 },
     { name: "intfin", url: "https://www.intfingroup.co.za", img: intfinImg },
     { name: "NWU", url: "https://www.nwu.ac.za", img: nwuImg },
-    { name: "Sponsor 4", url: "#", img: null },
+    { name: "Sponsor 4", url: "#", img: sponsorImg4 },
     { name: "Herald", url: "https://www.citizen.co.za/potchefstroom-herald/", img: heraldImg },
     { name: "The Go To Spot", url: "https://www.thegotoguy.co.za", img: goToGuyImg },
     { name: "Potchefstroom", url: "https://www.potchsakekamer.co.za/", img: potchChamberImg },
