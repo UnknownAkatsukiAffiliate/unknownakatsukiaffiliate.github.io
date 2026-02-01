@@ -9,6 +9,37 @@ const managementPic = new URL("../images/manager pic.png", import.meta.url).href
 
 // Image collection
 const galleryImages = [
+  // Newly added images from user attachments
+  {
+    src: new URL("../images/download (6).png", import.meta.url).href,
+    alt: "Community Event 6",
+    title: "Community Event 6",
+    type: "image"
+  },
+  {
+    src: new URL("../images/download (17).jpg", import.meta.url).href,
+    alt: "Community Event 17",
+    title: "Community Event 17",
+    type: "image"
+  },
+  {
+    src: new URL("../images/download (18).jpg", import.meta.url).href,
+    alt: "Community Event 18",
+    title: "Community Event 18",
+    type: "image"
+  },
+  {
+    src: new URL("../images/download (19).jpg", import.meta.url).href,
+    alt: "Community Event 19",
+    title: "Community Event 19",
+    type: "image"
+  },
+  {
+    src: new URL("../images/download (20).jpg", import.meta.url).href,
+    alt: "Community Event 20",
+    title: "Community Event 20",
+    type: "image"
+  },
   {
     src: new URL("../images/download (10).jpg", import.meta.url).href,
     alt: "Public Safety",
@@ -214,8 +245,8 @@ export default function AboutUs() {
       {/* Background image below About Us heading */}
       <div className="about-container">
         <img
-          src={new URL("../images/download.png", import.meta.url).href}
-          alt="Park at night background"
+          src={new URL("../images/download (10).jpg", import.meta.url).href}
+          alt="Public Safety"
           className="about-header-image"
         />
       </div>
