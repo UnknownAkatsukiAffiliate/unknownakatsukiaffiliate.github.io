@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap');
 /* Shared header image style for consistent scale across pages */
 .about-header-image {
   display: block;
@@ -67,7 +68,6 @@
     font-size: 16px;
   }
 }
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap');
 
 :root {
   --site-font: 'Raleway', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
