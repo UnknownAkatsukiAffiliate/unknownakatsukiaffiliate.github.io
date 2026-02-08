@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/footer.jsx";
 import "./AboutUs.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Resolve images from images folder
 const bottomImg = new URL("../images/image.png", import.meta.url).href;
@@ -151,83 +152,26 @@ const galleryImages = [
 ];
 
 export default function AboutUs() {
-  const [selectedImageIndex, setSelectedImageIndex] = React.useState(null);
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const [currentTime, setCurrentTime] = React.useState(0);
-  const [duration, setDuration] = React.useState(0);
-  const videoRef = React.useRef(null);
+  const [showModal, setShowModal] = React.useState(false);
+  const [carouselIndex, setCarouselIndex] = React.useState(0);
 
   const openModal = (index) => {
-    setSelectedImageIndex(index);
-    setIsPlaying(false);
-    setCurrentTime(0);
+    setCarouselIndex(index);
+    setShowModal(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
-    setSelectedImageIndex(null);
-    setIsPlaying(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
+    setShowModal(false);
+    document.body.style.overflow = '';
   };
 
-  const goToPrevious = () => {
-    if (selectedImageIndex !== null && selectedImageIndex > 0) {
-      openModal(selectedImageIndex - 1);
-    }
+  // Carousel navigation handlers
+  const goToPrev = () => {
+    setCarouselIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
   };
-
   const goToNext = () => {
-    if (selectedImageIndex !== null && selectedImageIndex < galleryImages.length - 1) {
-      openModal(selectedImageIndex + 1);
-    }
-  };
-
-  const handleModalBackgroundClick = (e) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  };
-
-  const togglePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (videoRef.current) {
-      setCurrentTime(videoRef.current.currentTime);
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    if (videoRef.current) {
-      setDuration(videoRef.current.duration);
-    }
-  };
-
-  const handleProgressChange = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const percentage = x / rect.width;
-    const newTime = percentage * duration;
-    if (videoRef.current) {
-      videoRef.current.currentTime = newTime;
-      setCurrentTime(newTime);
-    }
-  };
-
-  const formatTime = (time) => {
-    if (isNaN(time)) return "0:00";
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    setCarouselIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -402,114 +346,75 @@ export default function AboutUs() {
             <div className="gallery-container">
               {galleryImages.map((image, index) => (
                 <div key={index} className="gallery-item" onClick={() => openModal(index)}>
-                  {image.type === "video" ? (
-                    <>
-                      <video
-                        src={image.src}
-                        className="gallery-image"
-                      />
-                      <div className="video-play-icon">▶</div>
-                    </>
-                  ) : (
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="gallery-image"
-                    />
-                  )}
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="gallery-image"
+                  />
                 </div>
               ))}
             </div>
 
-            {/* Image/Video Modal */}
-            {selectedImageIndex !== null && (
-              <div 
-                className="modal-background" 
-                onClick={handleModalBackgroundClick}
+            {/* Bootstrap 5 Carousel Modal (custom, not react-bootstrap) */}
+            {showModal && (
+              <div
+                className="modal fade show"
+                tabIndex="-1"
+                style={{ display: 'block', background: 'rgba(0,0,0,0.8)', zIndex: 1050 }}
+                aria-modal="true"
+                role="dialog"
+                onClick={closeModal}
               >
-                {/* Modal Title */}
-                <div className="modal-title">About us in pictures</div>
-
-                {/* Image Counter */}
-                <div className="modal-counter">
-                  {selectedImageIndex + 1} / {galleryImages.length}
-                </div>
-
-                {/* Close Button */}
-                <button className="modal-close" onClick={closeModal}>✕</button>
-
-                {/* Previous Arrow */}
-                {selectedImageIndex > 0 && (
-                  <button 
-                    className="modal-nav-arrow modal-nav-prev"
-                    onClick={goToPrevious}
-                    aria-label="Previous image"
-                  >
-                    ‹
-                  </button>
-                )}
-
-                {/* Next Arrow */}
-                {selectedImageIndex < galleryImages.length - 1 && (
-                  <button 
-                    className="modal-nav-arrow modal-nav-next"
-                    onClick={goToNext}
-                    aria-label="Next image"
-                  >
-                    ›
-                  </button>
-                )}
-
-                {galleryImages[selectedImageIndex].type === "video" ? (
-                  <div className="custom-video-player">
-                    <video
-                      ref={videoRef}
-                      src={galleryImages[selectedImageIndex].src}
-                      className="modal-image"
-                      onTimeUpdate={handleTimeUpdate}
-                      onLoadedMetadata={handleLoadedMetadata}
-                      style={{
-                        width: '90vw',
-                        maxWidth: '800px',
-                        height: 'auto'
-                      }}
-                    />
-                    
-                    {/* Custom Controls */}
-                    <div className="video-controls">
-                      {/* Progress Bar */}
-                      <div 
-                        className="progress-bar-container" 
-                        onClick={handleProgressChange}
-                      >
-                        <div 
-                          className="progress-bar" 
-                          style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
-                        >
-                          <div className="progress-handle"></div>
+                <div
+                  className="modal-dialog modal-dialog-centered modal-lg"
+                  style={{ pointerEvents: 'none', maxWidth: '900px' }}
+                  onClick={e => e.stopPropagation()}
+                >
+                  <div className="modal-content" style={{ background: 'transparent', border: 'none', boxShadow: 'none' }}>
+                    {/* Modal header removed as requested */}
+                    <div className="modal-body" style={{ padding: 0 }}>
+                      <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" style={{ position: 'relative' }}>
+                        <div className="carousel-inner">
+                          {galleryImages.map((image, idx) => (
+                            <div
+                              className={`carousel-item${carouselIndex === idx ? ' active' : ''}`}
+                              key={idx}
+                            >
+                              <img
+                                src={image.src}
+                                className="d-block w-100"
+                                alt={image.alt}
+                                style={{ maxHeight: '70vh', objectFit: 'contain', margin: '0 auto' }}
+                              />
+                              {/* Image description removed as requested */}
+                            </div>
+                          ))}
                         </div>
-                      </div>
-
-                      {/* Control Buttons */}
-                      <div className="controls-bottom">
-                        <div 
-                          className="play-button"
-                          onClick={togglePlayPause}
-                          role="button"
+                        <button
+                          className="carousel-control-prev"
+                          type="button"
+                          style={{ filter: 'invert(1)' }}
+                          onClick={goToPrev}
                           tabIndex={0}
                         >
-                          {isPlaying ? "⏸" : "▶"}
-                        </div>
+                          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button
+                          className="carousel-control-next"
+                          type="button"
+                          style={{ filter: 'invert(1)' }}
+                          onClick={goToNext}
+                          tabIndex={0}
+                        >
+                          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span className="visually-hidden">Next</span>
+                        </button>
+                        {/* Image count removed as requested */}
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <img
-                    src={galleryImages[selectedImageIndex].src}
-                    alt={galleryImages[selectedImageIndex].alt}
-                    className="modal-image"
-                  />
-                )}
+                </div>
               </div>
             )}
           </section>

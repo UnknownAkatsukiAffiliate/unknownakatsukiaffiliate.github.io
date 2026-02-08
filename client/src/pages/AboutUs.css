@@ -1,3 +1,29 @@
+.carousel-control-prev:hover,
+.carousel-control-next:hover,
+.carousel-control-prev:active,
+.carousel-control-next:active,
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+/* Remove orange background from Bootstrap carousel navigation buttons */
+.carousel-control-prev,
+.carousel-control-next {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0,0,0,0.4) !important;
+  border-radius: 50%;
+  background-size: 60% 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap');
 /* Shared header image style for consistent scale across pages */
 .about-header-image {
