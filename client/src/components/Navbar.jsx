@@ -209,18 +209,6 @@ export default function Navbar() {
                 />
               </div>
 
-              {/* Mobile menu button */}
-              {isMobile && (
-                <button 
-                  className="navbar-toggler border-0"
-                  type="button"
-                  onClick={toggleMobileMenu}
-                  aria-label="Toggle navigation"
-                >
-                  <span className="navbar-toggler-icon"></span>
-                </button>
-              )}
-
               {/* Navigation links - Custom layout to match original design */}
               <div className={buildClassName(
                 buildClassName("custom-nav", isCompact, "custom-nav-compact"),
@@ -302,7 +290,7 @@ export default function Navbar() {
       <div
         className={buildClassName("navbar-spacer", isCompact, "navbar-spacer-compact")}
         style={{
-          height: isMobile ? (isCompact ? 80 : 120) : (isCompact ? 120 : 160),
+          height: isMobile ? (isCompact ? 100 : 140) : (isCompact ? 120 : 160),
           transition: 'height 0.3s',
         }}
       />
