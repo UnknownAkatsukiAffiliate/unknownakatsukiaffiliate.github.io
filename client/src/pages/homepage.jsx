@@ -172,7 +172,7 @@ export default function HomePage() {
     const c = contact.trim();
     const formData = {
       access_key: import.meta.env.VITE_WEB3FORMS_KEY,
-      to: "kyleogle12@gmail.com",
+      to: "bestuur@cpcid.co.za",
       subject: name.trim() || "Report",
       from_name: name.trim() || "Anonymous",
       from_email: c,

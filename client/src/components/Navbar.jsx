@@ -131,6 +131,7 @@ export default function Navbar() {
   };
 
   const toggleMobileMenu = () => {
+    console.log("Toggle menu clicked, current state:", isMobileMenuOpen);
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
@@ -209,7 +210,18 @@ export default function Navbar() {
                 />
               </div>
 
-              {/* Navigation links - Custom layout to match original design */}
+              {/* Hamburger Menu Button - Mobile Only */}
+              <button
+                className="navbar-toggler"
+                onClick={toggleMobileMenu}
+                aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isMobileMenuOpen}
+                title="Toggle navigation menu"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+
+              {/* Navigation links - Desktop layout */}
               <div className={buildClassName(
                 buildClassName("custom-nav", isCompact, "custom-nav-compact"),
                 isMobileMenuOpen,
