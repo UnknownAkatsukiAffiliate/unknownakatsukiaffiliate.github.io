@@ -4,9 +4,6 @@ import Navbar from "../components/Navbar.jsx";
 import "./Membership.css";
 import Footer from "../components/footer.jsx";
 
-// Import fee calculation image
-const lidgeldImg = new URL("../images/Lidgeld_verduideliking-02.jpg", import.meta.url).href;
-
 export default function Membership() {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -106,14 +103,20 @@ export default function Membership() {
             <div className="fee-calculation-container">
               <h3 className="fee-subsection-title">Fee Calculation Breakdown</h3>
               <p className="content-text">
-                The monthly membership fee is calculated as a percentage of your property's municipal R-value. Below is a detailed illustration of how this calculation works:
+                The membership fee is calculated as follows:
               </p>
               
-              <img 
-                src={lidgeldImg} 
-                alt="Membership fee calculation illustration" 
-                className="fee-calculation-image"
-              />
+              <div className="fee-calculation-text">
+                <p className="calculation-formula">
+                  R 287.64 x R (Property Value) ÷ 1 000 000 = R ___________ (BTW ingesluit / VAT included)
+                </p>
+                <p className="calculation-note">
+                  Jaarlikse lidgeld-eskalasie van nie meer as 7% nie (effektief jaarliks op 1 Maart)
+                </p>
+                <p className="calculation-note-en">
+                  Annual member fee escalation not more than 7% (effective annually on 1 March)
+                </p>
+              </div>
               
               <div className="fee-explanation">
                 <h4 className="explanation-title">Understanding Your Fee</h4>

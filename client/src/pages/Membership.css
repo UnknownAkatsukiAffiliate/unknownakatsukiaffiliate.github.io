@@ -211,6 +211,39 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.fee-calculation-text {
+    margin: 25px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.calculation-formula {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c5530;
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+    font-family: 'Courier New', monospace;
+}
+
+.calculation-note {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.calculation-note-en {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.6;
+    font-style: italic;
+}
+
 .fee-explanation {
     margin-top: 25px;
     padding-top: 25px;

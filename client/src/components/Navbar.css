@@ -21,9 +21,9 @@
 /* --- MAXIMUM FONT SIZE FOR NAVBAR ITEMS (links only), BUTTONS UNCHANGED --- */
 .navbar-main .nav-link-custom,
 .navbar-main .nav-link-compact {
-  font-size: 20px !important;
-  padding: 0 14px !important;
-  margin-right: 8px !important;
+  font-size: 18px !important;
+  padding: 0 10px !important;
+  margin-right: 6px !important;
 }
 .navbar-main .report-btn,
 .navbar-main .report-btn-compact {
@@ -161,7 +161,7 @@
 
 .custom-nav {
   display: flex !important;
-  gap: 30px;
+  gap: 15px;
   align-items: center !important;
   margin: 0 !important;
   margin-left: auto !important;
@@ -169,7 +169,7 @@
 }
 
 .custom-nav-compact {
-  gap: 20px;
+  gap: 12px;
   margin: 0 !important;
   margin-left: auto !important;
 }
@@ -178,7 +178,7 @@
   color: #333 !important;
   text-decoration: none !important;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   transition: color 0.3s ease;
   padding: 0 !important;

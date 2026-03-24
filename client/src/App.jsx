@@ -7,6 +7,7 @@ import Registration from "./pages/Registration.jsx";
 import UsefulInfo from "./pages/UsefulInfo.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
+import SkillsPage from "./pages/SkillsPage.jsx";
 
 function App() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function App() {
       <Route path="/useful-info" element={<UsefulInfo />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />
+      <Route path="/skills" element={<SkillsPage />} />
     </Routes>
   );
 }

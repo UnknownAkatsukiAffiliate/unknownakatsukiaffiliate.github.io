@@ -263,6 +263,15 @@ export default function Navbar() {
                   USEFUL INFORMATION
                 </Link>
                 <Link
+                  to="/skills"
+                  className={buildClassName("nav-link-custom", isCompact, "nav-link-compact")}
+                  onMouseOver={handleMouseOver}
+                  onMouseOut={handleMouseOut}
+                  onClick={(e) => handleNavClick("/skills", e)}
+                >
+                  SKILLS DIRECTORY
+                </Link>
+                <Link
                   to="/membership"
                   className={buildClassName("nav-link-custom", isCompact, "nav-link-compact")}
                   onMouseOver={handleMouseOver}

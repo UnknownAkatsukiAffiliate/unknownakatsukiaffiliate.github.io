@@ -27,7 +27,6 @@ const whatsappImg4 = new URL("../images/WhatsApp Image 2026-03-21 at 18.55.04.jp
 const whatsappImg5 = new URL("../images/WhatsApp Image 2026-03-22 at 12.54.28.jpeg", import.meta.url).href;
 
 // FAQ/Report images
-const lidgeldImg = new URL("../images/Lidgeld_verduideliking-02.jpg", import.meta.url).href;
 
 // API base (frontend -> backend)
 const API_BASE =
@@ -434,7 +433,17 @@ export default function HomePage() {
                 </button>
                 {expandedFAQ === 1 && (
                   <div className="faq-answer">
-                    <img src={lidgeldImg} alt="Monthly membership fee calculation" style={{ width: '100%', maxWidth: '600px', marginTop: '15px', borderRadius: '6px' }} />
+                    <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '6px', marginTop: '15px', border: '1px solid #dee2e6' }}>
+                      <p style={{ fontSize: '16px', fontWeight: '600', color: '#2c5530', margin: '0 0 15px 0', lineHeight: '1.6', fontFamily: "'Courier New', monospace" }}>
+                        R 287.64 x R (Property Value) ÷ 1 000 000 = R ___________ (BTW ingesluit / VAT included)
+                      </p>
+                      <p style={{ fontSize: '14px', color: '#555', margin: '10px 0', lineHeight: '1.6', fontWeight: '500' }}>
+                        Jaarlikse lidgeld-eskalasie van nie meer as 7% nie (effektief jaarliks op 1 Maart)
+                      </p>
+                      <p style={{ fontSize: '14px', color: '#555', margin: '10px 0', lineHeight: '1.6', fontStyle: 'italic' }}>
+                        Annual member fee escalation not more than 7% (effective annually on 1 March)
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
