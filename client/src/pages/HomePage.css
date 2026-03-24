@@ -449,9 +449,17 @@ body,
   object-fit: contain;
 }
 
-/* Carousel on mobile */
+/* Partners Grid - 4 per row collage */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+/* Carousel for all devices */
 .partners-carousel {
-  display: none;
+  display: flex;
   position: relative;
   align-items: center;
   gap: 0;
@@ -461,7 +469,7 @@ body,
 .carousel-container {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   overflow: hidden;
 }
@@ -505,12 +513,13 @@ body,
   cursor: not-allowed;
 }
 
-/* Mobile - show carousel instead of grid */
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .partners-grid {
-    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
-  
+
   .partners-carousel {
     display: flex;
   }

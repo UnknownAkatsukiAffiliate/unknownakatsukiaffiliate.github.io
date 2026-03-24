@@ -3,6 +3,10 @@ import Navbar from "../components/Navbar.jsx";
 import "./UsefulInfo.css";
 import Footer from "../components/footer.jsx";
 
+// Emergency contacts images
+const emergencyContactsImg = new URL("../images/WhatsApp Image 2026-02-28 at 16.24.53.jpeg", import.meta.url).href;
+const emergencyContactsImg2 = new URL("../images/WhatsApp Image 2026-03-21 at 18.57.21.jpeg", import.meta.url).href;
+
 
 export default function UsefulInfo() {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = React.useState(0);
@@ -53,13 +57,20 @@ export default function UsefulInfo() {
           {/* Emergency Contacts */}
           <div className="info-section">
             <h2 className="section-title">Emergency Contacts</h2>
-            <ul className="content-list">
-              <li className="list-item"><strong>Police:</strong> 10111 / 018 299 7477</li>
-              <li className="list-item"><strong>Ambulance:</strong> 10177</li>
-              <li className="list-item"><strong>Fire Department / Traffic / Disaster Management:</strong> 078 803 1570</li>
-              <li className="list-item"><strong>NWU Protection Services :</strong> 018 299 2215</li>
-              <li className="list-item"><strong>Cachet Park  Public Safety :</strong> 073 473 2803</li>
-            </ul>
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <img
+                src={emergencyContactsImg}
+                alt="Emergency Contacts"
+                className="emergency-contacts-image"
+                style={{ maxWidth: '35%', height: 'auto', borderRadius: '8px' }}
+              />
+              <img
+                src={emergencyContactsImg2}
+                alt="Emergency Contacts 2"
+                className="emergency-contacts-image"
+                style={{ maxWidth: '35%', height: 'auto', borderRadius: '8px' }}
+              />
+            </div>
           </div>
 
           {/* Local Services */}
@@ -114,23 +125,6 @@ export default function UsefulInfo() {
               ></iframe>
             </div>
           </div>
-
-          {/* Bult Bulletin Episodes */}
-          <div className="info-section">
-            <h2 className="section-title">Bult Bulletin Episodes</h2>
-            <p className="content-text">
-              Watch Bult Bulletin episodes on YouTube:
-            </p>
-            <a 
-              href="https://www.youtube.com/results?search_query=bult+bulletin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="external-link-button"
-            >
-              View Bult Bulletin Episodes on YouTube
-            </a>
-          </div>
-
 
           {/* Testimonials */}
           <div className="info-section">

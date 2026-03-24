@@ -131,7 +131,6 @@ export default function Navbar() {
   };
 
   const toggleMobileMenu = () => {
-    console.log("Toggle menu clicked, current state:", isMobileMenuOpen);
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 

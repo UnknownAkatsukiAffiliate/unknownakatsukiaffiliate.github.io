@@ -118,7 +118,7 @@ export default function Membership() {
               <div className="fee-explanation">
                 <h4 className="explanation-title">Understanding Your Fee</h4>
                 <ul className="content-list">
-                  <li className="list-item"><strong>Municipal R-value:</strong> This is the valuation of your property as determined by JB Marks Municipality.</li>
+                  <li className="list-item"><strong>Municipal R-value:</strong> This is the valuation of your property as determined by the local Municipality.</li>
                   <li className="list-item"><strong>Percentage Applied:</strong> A fixed percentage is applied to your property's R-value to calculate the monthly fee.</li>
                   <li className="list-item"><strong>Fair Distribution:</strong> This method ensures costs are shared fairly based on property value and size.</li>
                   <li className="list-item"><strong>Annual Review:</strong> Fees are reviewed annually and may be adjusted based on CID operational costs and inflation.</li>

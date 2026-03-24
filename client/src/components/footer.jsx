@@ -9,10 +9,10 @@ export default function Footer() {
           <div className="contact-info">
             <p>
               <strong>Address:</strong><br />
-              Cachet Park CID<br />
-              P.O. Box 75363<br />
-              Lynnwood Ridge<br />
-              0040
+              Shop 5, Cachet Park Shopping Centre<br />
+              Steve Biko Avenue<br />
+              Potchefstroom<br />
+              2531
             </p>
             <p>
               <strong>Phone:</strong> 018 175 0287
@@ -30,25 +30,11 @@ export default function Footer() {
                 <img
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg"
                   alt="Facebook"
-                  style={{ width: 28, height: 28, verticalAlign: "middle", filter: "invert(0)" }}
+                  style={{ width: 64, height: 64, verticalAlign: "middle", filter: "invert(0)" }}
                 />
               </a>
 
-              <a
-                href="https://www.instagram.com/cachetparkcid/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Cachet Park CID on Instagram"
-                style={{ display: "inline-block" }}
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/instagram.svg"
-                  alt="Instagram"
-                  style={{ width: 28, height: 28, verticalAlign: "middle", filter: "invert(0)" }}
-                />
-              </a>
-
-              {/* YouTube removed */}
+{/* Instagram removed */}
             </div>
           </div>
         </div>

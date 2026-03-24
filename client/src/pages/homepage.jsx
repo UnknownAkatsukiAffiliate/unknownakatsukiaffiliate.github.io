@@ -17,6 +17,14 @@ const heraldImg = new URL("../images/Potch Herald.png", import.meta.url).href;
 const goToGuyImg = new URL("../images/the go to guy.png", import.meta.url).href;
 const potchChamberImg = new URL("../images/Potch chamvber of commerce.png", import.meta.url).href;
 const buzzerImg = new URL("../images/buzzer.jpg", import.meta.url).href;
+const iducImg = new URL("../images/WhatsApp Image 2026-02-28 at 16.24.51.jpeg", import.meta.url).href;
+const forTheOneImg = new URL("../images/WhatsApp Image 2026-02-28 at 16.24.52.jpeg", import.meta.url).href;
+const potchFirstResponderImg = new URL("../images/WhatsApp Image 2026-02-28 at 16.24.54.jpeg", import.meta.url).href;
+const whatsappImg1 = new URL("../images/WhatsApp Image 2026-03-11 at 19.46.53.jpeg", import.meta.url).href;
+const whatsappImg2 = new URL("../images/WhatsApp Image 2026-03-11 at 19.46.55.jpeg", import.meta.url).href;
+const whatsappImg3 = new URL("../images/WhatsApp Image 2026-03-21 at 18.55.01.jpeg", import.meta.url).href;
+const whatsappImg4 = new URL("../images/WhatsApp Image 2026-03-21 at 18.55.04.jpeg", import.meta.url).href;
+const whatsappImg5 = new URL("../images/WhatsApp Image 2026-03-22 at 12.54.28.jpeg", import.meta.url).href;
 
 // FAQ/Report images
 const lidgeldImg = new URL("../images/Lidgeld_verduideliking-02.jpg", import.meta.url).href;
@@ -35,7 +43,6 @@ export default function HomePage() {
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
   const [expandedFAQ, setExpandedFAQ] = useState(null);
-  const [carouselIndex, setCarouselIndex] = useState(0);
   const [errors, setErrors] = useState({
     name: "",
     contact: "",
@@ -52,6 +59,14 @@ export default function HomePage() {
     { name: "The Go To Spot", url: "https://www.thegotoguy.co.za", img: goToGuyImg },
     { name: "Potchefstroom", url: "https://www.potchsakekamer.co.za/", img: potchChamberImg },
     { name: "Buzzer", url: "https://www.buzzer-app.co.za", img: buzzerImg },
+    { name: "iDUC", url: "#", img: iducImg },
+    { name: "For the One", url: "#", img: forTheOneImg },
+    { name: "Potchefstroom First Responder", url: "#", img: potchFirstResponderImg },
+    { name: "Sponsor", url: "#", img: whatsappImg1 },
+    { name: "Sponsor", url: "#", img: whatsappImg2 },
+    { name: "Sponsor", url: "#", img: whatsappImg3 },
+    { name: "Sponsor", url: "#", img: whatsappImg4 },
+    { name: "Sponsor", url: "#", img: whatsappImg5 },
   ];
 
   const validateEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
@@ -59,14 +74,6 @@ export default function HomePage() {
     if (!v) return false;
     const digits = String(v).replace(/\D/g, "");
     return digits.length >= 7 && digits.length <= 15;
-  };
-
-  const handlePrevPartner = () => {
-    setCarouselIndex((prev) => (prev > 0 ? prev - 1 : partners.length - 2));
-  };
-
-  const handleNextPartner = () => {
-    setCarouselIndex((prev) => (prev < partners.length - 2 ? prev + 1 : 0));
   };
 
   const validateAll = () => {
@@ -172,7 +179,7 @@ export default function HomePage() {
     const c = contact.trim();
     const formData = {
       access_key: import.meta.env.VITE_WEB3FORMS_KEY,
-      to: "bestuur@cpcid.co.za",
+      to: "kyleogle12@gmail.com",
       subject: name.trim() || "Report",
       from_name: name.trim() || "Anonymous",
       from_email: c,
@@ -244,7 +251,7 @@ export default function HomePage() {
               Cachet Park CID was founded in 2018 when dedicated residents, business owners, school principals and staff and students believed in and became part of a proposed solution. The mission is simple – to ensure that the environment – within which the Bult is located as the heartbeat of Potchefstroom – is kept clean of all unwanted elements. Former Vice-Chancellor of the NWU, Potchefstroom Campus, Professor Fika Janse van Rensburg was then at the steer of the project.
             </p>
             <p className="section-subtitle">
-              Cachet Park CID is a non-profit organization whose primary purpose is to keep the designated demarcated area clean, safe, and tidy. The founding members, JB Marks Municipality and the NWU, Potchefstroom Campus, made the launch of this organization possible.
+              Cachet Park CID is a non-profit organization whose primary purpose is to keep the designated demarcated area clean, safe, and tidy. The founding members, the local Municipality and the NWU, Potchefstroom Campus, made the launch of this organization possible.
             </p>
             <p className="section-subtitle">Since then, funding has taken place through voluntary member contributions and donations.</p>
 
@@ -406,7 +413,7 @@ export default function HomePage() {
                   onClick={() => setExpandedFAQ(expandedFAQ === 0 ? null : 0)}
                   aria-expanded={expandedFAQ === 0}
                 >
-                  <span>How do i become a member of Cachet Park CID?</span>
+                  <span>How do I become a member of Cachet Park CID?</span>
                   <span className="faq-toggle">{expandedFAQ === 0 ? '−' : '+'}</span>
                 </button>
                 {expandedFAQ === 0 && (
@@ -443,7 +450,7 @@ export default function HomePage() {
                 </button>
                 {expandedFAQ === 2 && (
                   <div className="faq-answer">
-                    Cachet Park CID is in discussion and negotiation with JB Marks Municipality to arrange for the total service delivery to be taken over and the municipality to be billed monthly. However, negotiations have not yet been concluded and currently fees are payable to both parties.
+                    Cachet Park CID is in discussion and negotiation with the local Municipality to arrange for the total service delivery to be taken over and the municipality to be billed monthly. However, negotiations have not yet been concluded and currently fees are payable to both parties.
                   </div>
                 )}
               </div>
@@ -455,76 +462,20 @@ export default function HomePage() {
         <section className="section">
           <div className="home-container">
             <h2 className="section-title">Our Partners & Sponsors</h2>
-            
-            {/* Desktop Grid */}
-            <div className="partners-grid">
-              <div className="partner-card">
-                <img src={sponsorImg1} alt="Sponsor" />
-              </div>
-              <div className="partner-card">
-                <a href="https://www.intfingroup.co.za" target="_blank" rel="noopener noreferrer">
-                  <img src={intfinImg} alt="intfin" />
-                </a>
-              </div>
-              <div className="partner-card">
-                <a href="https://www.nwu.ac.za" target="_blank" rel="noopener noreferrer">
-                  <img src={nwuImg} alt="NWU" />
-                </a>
-              </div>
-              <div className="partner-card">
-                <img src={sponsorImg4} alt="Sponsor" />
-              </div>
-              <div className="partner-card">
-                <a href="https://www.citizen.co.za/potchefstroom-herald/" target="_blank" rel="noopener noreferrer">
-                  <img src={heraldImg} alt="Herald" />
-                </a>
-              </div>
-              <div className="partner-card">
-                <a href="https://www.thegotoguy.co.za" target="_blank" rel="noopener noreferrer">
-                  <img src={goToGuyImg} alt="The Go To Spot" />
-                </a>
-              </div>
-              <div className="partner-card">
-                <a href="https://www.potchsakekamer.co.za/" target="_blank" rel="noopener noreferrer">
-                  <img src={potchChamberImg} alt="Potchefstroom" />
-                </a>
-              </div>
-              <div className="partner-card">
-                <a href="https://www.buzzer-app.co.za" target="_blank" rel="noopener noreferrer">
-                  <img src={buzzerImg} alt="Buzzer" />
-                </a>
-              </div>
-            </div>
 
-            {/* Mobile Carousel */}
-            <div className="partners-carousel">
-              <button 
-                className="carousel-nav-btn" 
-                onClick={handlePrevPartner}
-                disabled={carouselIndex === 0}
-                aria-label="Previous partners"
-              >
-                ←
-              </button>
-              
-              <div className="carousel-container">
-                {partners.slice(carouselIndex, carouselIndex + 2).map((partner) => (
-                  <div key={partner.name} className="partner-card">
+            {/* Partners Grid Collage - 4 per row */}
+            <div className="partners-grid">
+              {partners.map((partner, index) => (
+                <div key={index} className="partner-card">
+                  {partner.url !== "#" ? (
                     <a href={partner.url} target="_blank" rel="noopener noreferrer">
                       <img src={partner.img} alt={partner.name} />
                     </a>
-                  </div>
-                ))}
-              </div>
-              
-              <button 
-                className="carousel-nav-btn" 
-                onClick={handleNextPartner}
-                disabled={carouselIndex >= partners.length - 2}
-                aria-label="Next partners"
-              >
-                →
-              </button>
+                  ) : (
+                    <img src={partner.img} alt={partner.name} />
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

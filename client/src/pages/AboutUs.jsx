@@ -148,6 +148,12 @@ const galleryImages = [
     alt: "Collage Image",
     title: "Collage Image",
     type: "image"
+  },
+  {
+    src: new URL("../images/WhatsApp Image 2026-03-11 at 19.42.10.jpeg", import.meta.url).href,
+    alt: "Community Event",
+    title: "Community Event",
+    type: "image"
   }
 ];
 
@@ -189,7 +195,7 @@ export default function AboutUs() {
       {/* Background image below About Us heading */}
       <div className="about-container">
         <img
-          src={new URL("../images/download (10).jpg", import.meta.url).href}
+          src={new URL("../images/download.png", import.meta.url).href}
           alt="Public Safety"
           className="about-header-image"
         />
@@ -278,7 +284,8 @@ export default function AboutUs() {
                     <div className="member-item"><strong>Prof. Daryl Balia</strong></div>
                     <div className="member-item"><strong>Benje Ouwencamp</strong></div>
                     <div className="member-item"><strong>Col. Des Ayob</strong></div>
-                    <div className="member-item"><strong>JB MARKS</strong></div>
+                    <div className="member-item"><strong>Prof. Johan Holm</strong></div>
+                    <div className="member-item"><strong>Thomas Muswede</strong></div>
                   </div>
                 </div>
 

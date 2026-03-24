@@ -5,7 +5,7 @@ import "./ContactUs.css";
 
 export default function ContactUs() {
   const fullAddress =
-    "Cachet Park CID NPC Potchefstroom — Shop 6 , Cachet Park Shopping Complex, Steve Biko St, Die Bult, Potchefstroom, 2531";
+    "Cachet Park CID NPC Potchefstroom — Shop 5 , Cachet Park Shopping Complex, Steve Biko St, Die Bult, Potchefstroom, 2531";
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -143,7 +143,7 @@ export default function ContactUs() {
                 </p>
                 <p>
                   <strong>Address:</strong><br />
-                  Cachet Park CID NPC Potchefstroom — Shop 6 , Cachet Park Shopping Complex, Steve Biko St, Die Bult, Potchefstroom, 2531
+                  Cachet Park CID NPC Potchefstroom — Shop 5 , Cachet Park Shopping Complex, Steve Biko St, Die Bult, Potchefstroom, 2531
                 </p>
                 <p>
                   <strong>Other contact details:</strong><br />
@@ -171,23 +171,10 @@ export default function ContactUs() {
                     <img
                       src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg"
                       alt="Facebook"
-                      style={{ width: 28, height: 28 }}
+                      style={{ width: 64, height: 64 }}
                     />
                   </a>
 
-                  <a
-                    href="https://www.instagram.com/cachetparkcid/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Cachet Park CID on Instagram"
-                    style={{ display: "inline-block" }}
-                  >
-                    <img
-                      src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/instagram.svg"
-                      alt="Instagram"
-                      style={{ width: 28, height: 28 }}
-                    />
-                  </a>
                 </div>
               </div>
             </section>
@@ -397,23 +384,10 @@ export default function ContactUs() {
                   <img
                     src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg"
                     alt="Facebook"
-                    style={{ width: 28, height: 28 }}
+                    style={{ width: 64, height: 64 }}
                   />
                 </a>
 
-                <a
-                  href="https://www.instagram.com/cachetparkcid/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Cachet Park CID on Instagram"
-                  style={{ display: "inline-block" }}
-                >
-                  <img
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/instagram.svg"
-                    alt="Instagram"
-                    style={{ width: 28, height: 28 }}
-                  />
-                </a>
               </div>
             </div>
           </aside>
