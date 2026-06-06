@@ -51,17 +51,27 @@ button::-webkit-focus-inner {
 }
 
 .page-header {
-    background: #f8f9fa;
-    padding: 30px 0;
-    border-bottom: 1px solid #dee2e6;
+    background: #2c5530;
+    padding: 15px 10px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
+}
+
+.page-header .usefulinfo-container {
+    max-width: none;
+    margin: 0;
+    padding: 0 20px;
 }
 
 .page-title {
-    font-size: 28px;
-    font-weight: 600;
-    color: #2c5530;
-    margin-bottom: 5px;
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    padding: 0;
     text-align: left;
+    width: auto;
 }
 
 .breadcrumb {

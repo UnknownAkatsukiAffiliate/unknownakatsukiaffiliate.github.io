@@ -1,4 +1,3 @@
-/* Force EN and AF buttons to always have blue background and red text */
 .lang-btn,
 .lang-btn-en,
 .lang-btn-af,
@@ -9,14 +8,22 @@
   color: #fff !important;
   border: none !important;
   font-weight: 800;
-  font-size: 12px !important;
+  font-size: 13px !important;
   letter-spacing: 1px;
   box-shadow: none !important;
   opacity: 1 !important;
   visibility: visible !important;
-  padding: 1px 4px !important;
-  min-width: 32px !important;
-  min-height: 22px !important;
+  padding: 2px 6px !important;
+  min-width: 35px !important;
+  min-height: 24px !important;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover,
+.lang-btn-active:hover {
+  opacity: 0.9 !important;
 }
 /* --- MAXIMUM FONT SIZE FOR NAVBAR ITEMS (links only), BUTTONS UNCHANGED --- */
 .navbar-main .nav-link-custom,
@@ -83,23 +90,28 @@
 }
 
 .top-bar-inner {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: 6px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .contact {
   display: flex;
   gap: 16px;
   align-items: center;
+  flex-wrap: wrap;
+  font-size: 13px;
 }
 
 .contact-item {
   color: #333;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .navbar-main {
@@ -494,7 +506,62 @@
   }
 
   .contact {
-    gap: 10px;
+    gap: 8px;
     font-size: 11px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .lang-btn,
+  .lang-btn-active {
+    font-size: 11px !important;
+    padding: 2px 4px !important;
+    min-width: 28px !important;
+    min-height: 20px !important;
+  }
+}
+
+/* Tablet and medium screens */
+@media (max-width: 768px) {
+  .top-bar-inner {
+    padding: 4px 12px;
+  }
+
+  .contact {
+    gap: 12px;
+    font-size: 12px;
+  }
+
+  .lang-btn,
+  .lang-btn-active {
+    font-size: 11px !important;
+    padding: 2px 5px !important;
+    min-width: 30px !important;
+    min-height: 21px !important;
+  }
+}
+
+/* Large phones and small tablets */
+@media (max-width: 480px) {
+  .top-bar-inner {
+    padding: 4px 8px;
+  }
+
+  .contact {
+    gap: 6px;
+    font-size: 10px;
+  }
+
+  .contact-item {
+    font-size: 10px;
+  }
+
+  .lang-btn,
+  .lang-btn-active {
+    font-size: 10px !important;
+    padding: 1px 3px !important;
+    min-width: 26px !important;
+    min-height: 18px !important;
+    letter-spacing: 0 !important;
   }
 }

@@ -37,6 +37,12 @@ body,
     color: white;
 }
 
+.page-header .skills-container {
+    padding: 0 20px;
+    max-width: none;
+    margin: 0;
+}
+
 .page-title {
     font-size: 36px;
     font-weight: 700;
