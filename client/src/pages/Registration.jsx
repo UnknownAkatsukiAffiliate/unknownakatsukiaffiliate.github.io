@@ -108,14 +108,14 @@ export default function Registration() {
     }
     // Map to sheet headers (membership individual)
     const payload = {
-      "first name": formData.firstName,
-      "last name": formData.lastName,
-      "nationality": formData.nationality,
-      "id number": formData.IDNumber || "",
-      "property address": formData.propertyAddress,
-      "phone number": formData.phone,
-      "email address": formData.email,
-      "btw number": formData.BTWNNumber || "",
+      "First Name": formData.firstName,
+      "Last Name": formData.lastName,
+      "Nationality": formData.nationality,
+      "ID Number": formData.IDNumber || "",
+      "Property Address": formData.propertyAddress,
+      "Phone Number": formData.phone,
+      "Email Address": formData.email,
+      "BTW Number": formData.BTWNNumber || "",
     };
 
     // Send to SheetDB (individual)
@@ -164,13 +164,13 @@ export default function Registration() {
     }
     // Map to sheet headers (membership business)
     const payload = {
-      "business name": formData.businessName,
-      "registration number": formData.companyRegNumber,
-      "business phone": formData.businessPhone,
-      "email address": formData.businessEmail,
-      "business address": formData.businessAddress,
-      "po box": formData.businessPOBox,
-      "btw number": formData.BTWNNumber || "",
+      "Business Name": formData.businessName,
+      "Registration Number": formData.companyRegNumber,
+      "Business Phone": formData.businessPhone,
+      "Email Address": formData.businessEmail,
+      "Business Address": formData.businessAddress,
+      "PO Box": formData.businessPOBox,
+      "BTW Number": formData.BTWNNumber || "",
     };
 
     // Send to SheetDB (business)
