@@ -2,15 +2,30 @@ import React from "react";
 import Navbar from "../components/Navbar.jsx";
 import "./UsefulInfo.css";
 import Footer from "../components/footer.jsx";
+import usePageStats from "../hooks/usePageStats.js";
 
 // Emergency contacts images
 const emergencyContactsImg = new URL("../images/WhatsApp Image 2026-02-28 at 16.24.53.jpeg", import.meta.url).href;
 const emergencyContactsImg2 = new URL("../images/WhatsApp Image 2026-03-21 at 18.57.21.jpeg", import.meta.url).href;
 
+// Simple line icons for the page statistics
+const iconProps = { width: 22, height: 22, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
+const STAT_ICONS = {
+  visits: (
+    <svg {...iconProps}><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg>
+  ),
+  visitors: (
+    <svg {...iconProps}><circle cx="9" cy="8" r="4" /><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1" /><path d="M16 4.5a4 4 0 0 1 0 7" /><path d="M19 14.5a6 6 0 0 1 3 5.5v1" /></svg>
+  ),
+  today: (
+    <svg {...iconProps}><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M3 10h18M8 3v4M16 3v4" /></svg>
+  ),
+};
 
 export default function UsefulInfo() {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = React.useState(0);
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+  const pageStats = usePageStats("useful-info");
 
   React.useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -162,6 +177,28 @@ export default function UsefulInfo() {
               )}
             </div>
           </div>
+
+          {/* Page Statistics (hidden if the counter service is unreachable) */}
+          {pageStats.status !== "error" && (
+            <div className="info-section">
+              <h2 className="section-title">Page Statistics</h2>
+              <div className="page-stats">
+                {[
+                  { label: "Total Visits", value: pageStats.stats?.totalVisits, icon: STAT_ICONS.visits },
+                  { label: "Unique Visitors", value: pageStats.stats?.uniqueVisitors, icon: STAT_ICONS.visitors },
+                  { label: "Visits Today", value: pageStats.stats?.visitsToday, icon: STAT_ICONS.today },
+                ].map((stat) => (
+                  <div key={stat.label} className="stat-item">
+                    <span className="stat-icon" aria-hidden="true">{stat.icon}</span>
+                    <span className={`stat-value${pageStats.status === "loading" ? " is-loading" : ""}`}>
+                      {pageStats.status === "loading" ? "–" : stat.value.toLocaleString("en-ZA")}
+                    </span>
+                    <span className="stat-label">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
         </div>
       </section>

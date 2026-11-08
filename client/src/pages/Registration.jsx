@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar.jsx";
 import "./Registration.css";
 import Footer from "../components/footer.jsx";
+import { SHEETS, addRow } from "../config/sheets.js";
 
 export default function Registration() {
-  // SheetDB endpoints
-  const SHEETDB_INDIVIDUAL = "https://sheetdb.io/api/v1/3w17cfbx2pp2f";
-  const SHEETDB_BUSINESS = "https://sheetdb.io/api/v1/r9pd2xqoz45ph";
   const [formData, setFormData] = useState({
     // individual fields
     firstName: "",
@@ -118,15 +116,9 @@ export default function Registration() {
       "BTW Number": formData.BTWNNumber || "",
     };
 
-    // Send to SheetDB (individual)
-    fetch(SHEETDB_INDIVIDUAL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ data: payload }),
-    })
-      .then(async (res) => {
-        const json = await res.json().catch(() => ({}));
-        if (!res.ok) throw new Error(json?.error || "SheetDB submission failed");
+    // Send to Google Sheet (individual)
+    addRow(SHEETS.individual, payload)
+      .then(() => {
         alert("Individual registration submitted successfully.");
         // reset individual-related fields
         setFormData((prev) => ({
@@ -143,7 +135,7 @@ export default function Registration() {
         setErrors({});
       })
       .catch((err) => {
-        console.error("SheetDB individual submit error:", err);
+        console.error("Individual registration submit error:", err);
         alert("Could not submit individual registration. Please try again.");
       });
   };
@@ -173,15 +165,9 @@ export default function Registration() {
       "BTW Number": formData.BTWNNumber || "",
     };
 
-    // Send to SheetDB (business)
-    fetch(SHEETDB_BUSINESS, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ data: payload }),
-    })
-      .then(async (res) => {
-        const json = await res.json().catch(() => ({}));
-        if (!res.ok) throw new Error(json?.error || "SheetDB submission failed");
+    // Send to Google Sheet (business)
+    addRow(SHEETS.business, payload)
+      .then(() => {
         alert("Business registration submitted successfully.");
         // reset business-related fields
         setFormData((prev) => ({
@@ -197,7 +183,7 @@ export default function Registration() {
         setErrors({});
       })
       .catch((err) => {
-        console.error("SheetDB business submit error:", err);
+        console.error("Business registration submit error:", err);
         alert("Could not submit business registration. Please try again.");
       });
   };

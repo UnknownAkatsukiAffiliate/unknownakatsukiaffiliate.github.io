@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/footer.jsx";
 import "./SkillsPage.css";
+import { SHEETS, addRow, getRows } from "../config/sheets.js";
 
 export default function SkillsPage() {
-  const SHEETDB_SKILLS = "https://sheetdb.io/api/v1/q5n1z9x7t8k2h";
-  
+
   // Form state
   const [formData, setFormData] = useState({
     name: "",
@@ -45,15 +45,11 @@ export default function SkillsPage() {
     "Other",
   ];
 
-  // Fetch workers from SheetDB
+  // Fetch workers from the Google Sheet
   useEffect(() => {
     const fetchWorkers = async () => {
       try {
-        const response = await fetch(SHEETDB_SKILLS);
-        if (response.ok) {
-          const data = await response.json();
-          setWorkers(data);
-        }
+        setWorkers(await getRows(SHEETS.skills));
       } catch (err) {
         console.error("Error fetching workers:", err);
       }
@@ -156,36 +152,25 @@ export default function SkillsPage() {
         dateSubmitted: new Date().toLocaleDateString(),
       };
 
-      const response = await fetch(SHEETDB_SKILLS, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ data: dataToSubmit }),
+      await addRow(SHEETS.skills, dataToSubmit);
+
+      setSent(true);
+      setError("");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        skills: [],
+        skillCategories: [],
+        description: "",
+        experience: "",
+        address: "",
       });
 
-      if (response.ok) {
-        setSent(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          skills: [],
-          skillCategories: [],
-          description: "",
-          experience: "",
-          address: "",
-        });
+      // Refresh workers list
+      getRows(SHEETS.skills).then(setWorkers).catch(() => {});
 
-        // Refresh workers list
-        const refreshResponse = await fetch(SHEETDB_SKILLS);
-        if (refreshResponse.ok) {
-          const data = await refreshResponse.json();
-          setWorkers(data);
-        }
-
-        setTimeout(() => setSent(false), 3000);
-      } else {
-        setError("Failed to submit skills. Please try again.");
-      }
+      setTimeout(() => setSent(false), 3000);
     } catch (err) {
       console.error("Error submitting skills:", err);
       setError("An error occurred. Please try again.");
